@@ -9,11 +9,18 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    // new를 사용해 새로운 memberRepo를 생성하지 않고
+    // 밑에 생성자를 이용해서 할당받음 그 이유는
+    // serviceTest와 같은 repo를 공유하기 위해서
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /*
-        회원 가입
-     */
+            회원 가입
+         */
     public Long join(Member member){
         validateDuplicateMember(member); // 중복 회원 검증
         memberRepository.save(member);
