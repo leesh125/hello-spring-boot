@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 public class MemberService {
 
     // new를 사용해 새로운 memberRepo를 생성하지 않고
@@ -17,7 +17,7 @@ public class MemberService {
     // serviceTest와 같은 repo를 공유하기 위해서
     private final MemberRepository memberRepository;
 
-    @Autowired
+
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
