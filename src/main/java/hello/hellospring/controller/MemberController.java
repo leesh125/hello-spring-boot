@@ -43,6 +43,7 @@ public class MemberController {
                         // post로 넘어온 input 데이터(name)는 매개변수로 입력한 MemberForm에 있는 name에 자동으로 setName이 됨
         Member member = new Member();
         member.setName(form.getName());
+        System.out.println("member = " + member.getName());
 
         memberService.join(member);
 
@@ -53,6 +54,7 @@ public class MemberController {
     public String list(Model model){
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
+
         return "members/memberList";
     }
 }
